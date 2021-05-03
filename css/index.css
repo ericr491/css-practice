@@ -1,0 +1,67 @@
+.wrapper {
+  height: auto; /** Auto will conform to contents */
+  width: auto; /** Auto will conform to contents */
+
+  display: flex; /** To enable Flexbox */
+  flex-direction: row; /** Rows or column */
+  flex-wrap: wrap; /** Enable responsive wrap */
+  justify-content: space-evenly; /** Adds spacing between each item; Centers the contents at the main axis */
+  align-items: center; /** Centers the contents at the secondary axis */
+
+  background-color: gray; /** See the container more properly */
+}
+
+img {
+  width: inherit;
+  max-height: inherit;
+
+  flex-grow: 1;
+  border: 5px;
+  border-radius: 5px;
+  border-style: solid;
+  border-color: antiquewhite;
+}
+
+.item {
+  /** Each div is a flexbox, so we can align the images inside of it */
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 350px;
+  max-height: 600px;
+  margin: 10px;
+  background-color: cornflowerblue;
+}
+
+#navbar {
+  background-color: chocolate;
+}
+
+.one {
+}
+
+.two {
+}
+
+.three {
+}
+
+.four {
+}
+
+.five {
+}
+
+.six {
+}
+
+.seven {
+}
+
+.eight {
+}
+
+.nine {
+}
