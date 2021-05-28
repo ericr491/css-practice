@@ -1,3 +1,8 @@
+body {
+  background-color: black;
+  margin: 0;
+}
+
 .wrapper {
   height: auto; /** Auto will conform to contents */
   width: auto; /** Auto will conform to contents */
@@ -12,56 +17,122 @@
 }
 
 img {
-  width: inherit;
+  width: inherit; /** Inherit the width from the item flexboxes */
   max-height: inherit;
 
-  flex-grow: 1;
+  flex-grow: 1; /** Expands the image such that fills up the item flexbox */
   border: 5px;
   border-radius: 5px;
   border-style: solid;
-  border-color: antiquewhite;
+  border-color: inherit; /** Inherits the color of the parent div */
 }
 
 .item {
   /** Each div is a flexbox, so we can align the images inside of it */
-  flex-grow: 1;
+  flex-grow: 1; /** Expands each of the nine flexbox so that it fills the empty space */
   display: flex;
   justify-content: center;
   align-items: center;
 
   width: 350px;
   max-height: 600px;
-  margin: 10px;
+  margin: 10px; /** Margin is outside, while Padding is inside */
   background-color: cornflowerblue;
 }
 
-#navbar {
-  background-color: chocolate;
-}
-
 .one {
-}
-
-.two {
+  border-color: royalblue;
 }
 
 .three {
+  border-color: purple;
 }
 
-.four {
+header {
+  background-color: chocolate;
+  text-align: center;
+  position: fixed; /** Moves when scrolling */
+  width: 100%;
+  z-index: 999;
 }
 
-.five {
+#navbar {
+  position: absolute; /** Navbar position is relative to the header tag */
+  top: 100%; /** 100% = Puts the top of navbar immediately to the bottom of the header, 0% Puts the top to the top of header*/
+  left: 0;
+  text-align: left;
+  background-color: inherit;
+  width: 100%;
+  transform: scale(1, 0);
+  transform-origin: top;
+  transition: transform 400ms ease-in-out;
 }
 
-.six {
+/** Selecting nested DOM elements */
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
-.seven {
+nav li {
+  margin-bottom: 1em;
+  margin-left: 1em;
 }
 
-.eight {
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  text-transform: uppercase;
 }
 
-.nine {
+/** When the text is hover, it will change color else color is reverted to default */
+nav a:hover {
+  color: aqua;
+}
+
+/** When the input is checked, it will look for a <nav> sibling and set its display to 'show' else its display is hidden */
+#nav-toggle:checked ~ nav {
+  display: block;
+  transform: scale(1, 1);
+}
+
+#nav-toggle {
+  display: none;
+}
+
+#nav-toggle-label {
+  position: absolute; /** Use position absolute to place it using top, bot, left, right */
+  top: 0;
+  left: 0;
+  margin-left: 1em;
+  border: 0px solid red;
+  display: flex; /** Used to center the X */
+  align-items: center; /** Centers the X */
+  height: 100%;
+}
+
+#nav-toggle-label span,
+#nav-toggle-label span::before,
+#nav-toggle-label span::after {
+  display: block;
+  background: wheat;
+  height: 2px;
+  width: 2em;
+  border-radius: 2px;
+}
+
+#nav-toggle-label span::before,
+#nav-toggle-label span::after {
+  content: '';
+  position: absolute;
+}
+
+#nav-toggle-label span::before {
+  bottom: 10px;
+}
+
+#nav-toggle-label span::after {
+  top: 10px;
 }
