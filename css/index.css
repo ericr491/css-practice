@@ -93,16 +93,16 @@ nav a:hover {
 }
 
 /** When the input is checked, it will look for a <nav> sibling and set its display to 'show' else its display is hidden */
-#nav-toggle:checked ~ nav {
+#nav-check:checked ~ nav {
   display: block;
   transform: scale(1, 1);
 }
 
-#nav-toggle {
+#nav-check {
   display: none;
 }
 
-#nav-toggle-label {
+#nav-check-label {
   position: absolute; /** Use position absolute to place it using top, bot, left, right */
   top: 0;
   left: 0;
@@ -113,9 +113,9 @@ nav a:hover {
   height: 100%;
 }
 
-#nav-toggle-label span,
-#nav-toggle-label span::before,
-#nav-toggle-label span::after {
+#nav-check-label span,
+#nav-check-label span::before,
+#nav-check-label span::after {
   display: block;
   background: wheat;
   height: 2px;
@@ -123,16 +123,16 @@ nav a:hover {
   border-radius: 2px;
 }
 
-#nav-toggle-label span::before,
-#nav-toggle-label span::after {
+#nav-check-label span::before,
+#nav-check-label span::after {
   content: '';
   position: absolute;
 }
 
-#nav-toggle-label span::before {
+#nav-check-label span::before {
   bottom: 10px;
 }
 
-#nav-toggle-label span::after {
+#nav-check-label span::after {
   top: 10px;
 }
