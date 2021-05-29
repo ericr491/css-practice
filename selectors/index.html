@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS</title>
+  <style type="text/CSS">
+    body {
+      margin: 0;
+    }
+
+    /* Selecting a class */
+    .main-paragraph {
+      background-color: aqua;
+      display: block;
+      text-align: center;
+      padding: 25px;
+      margin-top: 100px;
+    }
+    
+    /* Selecting a child DOM element */
+    p a {
+      font-style: italic;
+      text-decoration: none;
+      position: relative;
+    }
+
+    /* Selecting an anchor tag with the attribute data-tooltip */
+    a[data-tooltip] {
+      font-size: 2rem;
+    }
+
+    a[data-tooltip]::after {
+      content: attr(data-tooltip);
+      transform: scale(0);
+      display: block;
+      position: absolute; /* This is relative to the anchor tag */
+      background-color: aqua;
+      font-size: .75em;
+      bottom: 100%;
+      left: 0%;
+      border: 2px black solid;
+      padding: 10px;
+      white-space: nowrap;
+      transition: 
+        transform ease-out 150ms,
+        bottom ease-out 150ms;
+    }
+
+    a[data-tooltip]:hover::after {
+      transform: scale(1);
+      bottom: 100%;
+    }
+
+    a[href]:hover {
+      color: rgb(115, 92, 153);
+    }
+
+    /* Selecting an id */
+    #outer {
+      background-color: bisque;
+      text-align: center;
+      padding: 7em;
+    }
+
+
+    div div ul {
+      list-style: none;
+      text-align: left;
+    }
+
+    div div li {
+      padding: 10px;
+    }
+
+    div div li::before {
+      content: 'Section';
+      display: block;
+      font-size: 2em;
+    }
+
+  </style>
+</head>
+<body>
+  <span class="main-span">
+    <p class="main-paragraph">
+      <a href="#outer" data-tooltip="This is a data tooltip.">
+        Hello world!
+      </a>
+    </p>
+  </span>
+  <div id="outer" class="container">
+    <div id="inner" class="container">
+      <ul>
+        <li class="nav"><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente deleniti quae laudantium assumenda repellat ducimus amet dolore eius. Pariatur perferendis nulla sed eaque exercitationem ipsam magnam rerum labore minus esse!</p></li>
+        <li class="nav"><a href="#">Two</a></li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

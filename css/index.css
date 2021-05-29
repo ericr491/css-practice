@@ -14,6 +14,7 @@ body {
   align-items: center; /** Centers the contents at the secondary axis */
 
   background-color: gray; /** See the container more properly */
+  padding-top: 60px;
 }
 
 img {
