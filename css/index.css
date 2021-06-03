@@ -13,7 +13,7 @@ body {
   justify-content: space-evenly; /** Adds spacing between each item; Centers the contents at the main axis */
   align-items: center; /** Centers the contents at the secondary axis */
 
-  background-color: gray; /** See the container more properly */
+  background-color: black; /** See the container more properly */
   padding-top: 60px;
 }
 
@@ -86,6 +86,8 @@ nav a {
   text-decoration: none;
   font-size: 1.2rem;
   text-transform: uppercase;
+  opacity: 0;
+  transition: opacity 150ms ease-in-out;
 }
 
 /** When the text is hover, it will change color else color is reverted to default */
@@ -97,6 +99,11 @@ nav a:hover {
 #nav-check:checked ~ nav {
   display: block;
   transform: scale(1, 1);
+}
+
+#nav-check:checked ~ nav a {
+  opacity: 1;
+  transition: opacity 250ms ease-in-out 250ms;
 }
 
 #nav-check {
@@ -136,4 +143,60 @@ nav a:hover {
 
 #nav-check-label span::after {
   top: 10px;
+}
+
+@media screen and (min-width: 800px) {
+  #nav-check-label {
+    display: none;
+  }
+
+  header {
+    display: grid;
+    grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr;
+  }
+
+  header h3 {
+    grid-column: 2 / 3;
+  }
+
+  #navbar {
+    all: unset;
+    grid-column: 3 / 4;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  nav a {
+    opacity: 1;
+    position: relative;
+  }
+
+  nav a::before {
+    content: '';
+    display: block;
+    height: 5px;
+    background: black;
+    position: absolute;
+    bottom: -0.75em;
+    left: 0;
+    right: 0;
+    transform: scale(0, 1);
+    transform-origin: center;
+    transition: transform ease-in-out 250ms;
+  }
+
+  nav a:hover::before {
+    transform: scale(1, 1);
+  }
+
+  nav ul {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  nav li {
+    margin-bottom: 0;
+    margin-left: 3em;
+  }
 }
